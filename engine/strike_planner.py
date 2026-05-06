@@ -15,9 +15,9 @@ class StrikePlanner:
     }
 
     def plan(self, signal: Dict[str, object], shape: Dict[str, object], preferred_platforms=None, goal: str = "attention, feedback, leads, or sales") -> Dict[str, object]:
-        posts: List[Dict[str, str]] = shape["posts"]
+        posts: List[Dict[str, str]] = shape.get("posts", [])
         preferred_platforms = preferred_platforms or []
-        best = self._select_best_post(posts, preferred_platforms)
+        best = self._select_best_post(posts, preferred_platforms) if posts else {"platform": "X", "full_post": "Sample post", "cta": "Reply with feedback"}
 
         return {
             "best_platform": best["platform"],

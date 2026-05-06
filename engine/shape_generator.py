@@ -3,11 +3,11 @@ from typing import Dict, List
 
 class ShapeGenerator:
     def generate(self, signal: Dict[str, object], tone: str = "direct, intelligent, founder-building-in-public") -> Dict[str, object]:
-        insight = str(signal["core_insight"])
-        audience = str(signal["audience"])
-        pain = str(signal["pain_point"])
-        strongest = str(signal["strongest_sentence"])
-        monetizable = str(signal["monetizable_angle"])
+        insight = str(signal.get("core_insight", "key insight"))
+        audience = str(signal.get("audience", "founders"))
+        pain = str(signal.get("pain_point", "content creation"))
+        strongest = str(signal.get("strongest_sentence", "strong message"))
+        monetizable = str(signal.get("monetizable_angle", "service"))
 
         hooks = [
             "Your best content might already be buried in your AI chats.",
